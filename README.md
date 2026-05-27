@@ -73,6 +73,16 @@ INCIDENT_TRIAGE_URL=http://127.0.0.1:8000
 
 Set this to your deployed Incident Triage AI backend URL when hosting.
 
+## Deployment
+
+This repo includes a `render.yaml` blueprint for Render.
+
+Set this environment variable on the deployed service:
+
+```text
+INCIDENT_TRIAGE_URL=https://your-incident-triage-backend.onrender.com
+```
+
 ## Demo Flow
 
 1. Start Incident Triage AI backend
@@ -87,4 +97,3 @@ Set this to your deployed Incident Triage AI backend URL when hosting.
 This gives you a clean LinkedIn/interview story:
 
 > I built a demo commerce backend that generates realistic failures and automatically calls an AI incident triage service to produce root cause reports from logs, metrics, deployments, and runbooks.
-

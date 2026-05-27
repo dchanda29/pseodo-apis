@@ -1,6 +1,7 @@
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from httpx import HTTPError
 
 from pseudo_apis.config import settings
@@ -20,6 +21,13 @@ app = FastAPI(
     title=settings.app_name,
     description="Pseudo business APIs that integrate with Incident Triage AI for demos.",
     version="0.1.0",
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.allowed_origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 incident_client = IncidentTriageClient()
@@ -188,4 +196,3 @@ async def _trigger_demo_incident(
         triage_request=triage_request,
         triage_report=triage_report,
     )
-

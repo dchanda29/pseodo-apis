@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: pseodo-apis
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: INCIDENT_TRIAGE_URL
+        sync: false
+      - key: CORS_ALLOW_ORIGINS
+        value: "*"
